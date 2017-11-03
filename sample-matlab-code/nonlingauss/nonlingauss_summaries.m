@@ -1,7 +1,7 @@
 function [summariesx,summariesy] = nonlingauss_summaries(xhat,yobssim)
 % compute summary statistics for both X and Y across all simulations (vectorised code)
 % xhat: a nobs x (dx*numsim) matrix, where nobs = #observations, dx = size of the unobserved system X (here dy=1), numsim=number of simulations from the model.
-% xhat: a nobs x (dy*numsim) matrix, where nobs = #observations, dy = size of the observed system Y (here dy=1), numsim=number of simulations from the model.
+% yobssim: a nobs x (dy*numsim) matrix, where nobs = #observations, dy = size of the observed system Y (here dy=1), numsim=number of simulations from the model.
 
 
 if ~isempty(xhat)
