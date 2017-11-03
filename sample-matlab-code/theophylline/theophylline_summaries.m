@@ -3,7 +3,7 @@ function [summariesx,summariesy] = theophylline_summaries(xhat,xhat_big,yobssim,
 % xhat: a nobs x (dx*numsim) matrix, where nobs = #observations, dx = size of the unobserved system X (here dy=1), numsim=number of simulations from the model.
 % xhat_big: a N x (dx*numsim) matrix, where N = #imputed time points (=length(owntime) in the run file), dx = size of the unobserved system X (here dy=1), numsim=number of simulations from the model.
 % yobssim: a nobs x (dy*numsim) matrix, where nobs = #observations, dy = size of the observed system Y (here dy=1), numsim=number of simulations from the model.
-% covariates: in this case it is a structure, with first component the observational times (sampletime), and second component the fine grid of imputed times (owntime).
+% covariates: a structure, with first component the observational times (sampletime), and second component the fine grid of imputed times (owntime).
 % summariesx = a dsx * numsim matrix, where dsx is the number of summary statistics for X.
 % summariesy = a dsy * numsim matrix, where dsy is the number of summary statistics for Y.
 
