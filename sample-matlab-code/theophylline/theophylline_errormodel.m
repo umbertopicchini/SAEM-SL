@@ -1,5 +1,11 @@
 function yobssim = theophylline_errormodel(bigtheta,xhat,nobs)
-% produce Y, i.e. add measurement noise to X
+% simulates Y, i.e. adds measurement noise to X.
+% 
+% bigtheta = vector of the model parameters (both free and fixed parameters).
+% xhat = a nobs x numsim matrix of of simulations from the latent state X
+% nobs = number of sampling times
+% numsim = number of simulations (=R in the paper).
+% yobssim= a nobs x numsim matrix of of simulations from the observable process Y
 
 X0 = bigtheta(1);
 log_Ke = bigtheta(2);
