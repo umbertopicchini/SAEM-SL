@@ -1,5 +1,16 @@
 function [THETAsaem,simsummaries_final] = saem_synlik(model_param,parmask,parbase,yobs,saem_numit,warmup,numsim)
-%this is the main SAEM-SL algorithm
+% this is the main SAEM-SL algorithm (notice this version is not very general. It is specialised for the specific example "nonlingauss").
+% model_param: a structure containing quantities defined in the run file (bigtheta,problem,time,numdepvars,vrbl). See nonlingauss_run.m.
+% parmask: vector containing 1's for free parameters and 0 otherwise, see nonlingauss_run.m.
+% parbase: contains starting values for the parameters (especially useful to extract the values of fixed parameters = not estimated parameters). See nonlingauss_run.m.
+% yobs: vector of observations from the Y component of the model.
+% saem_numit: total number of SAEM iterations (=K in the paper).
+% warmup: the number of SAEM iterations (K1) before using the (descreasing) "alpha" sequence into SAEM
+% numsim: number of simulations (R in the paper) to compute a single evaluation of a synthetic likelihood.
+% THETAsaem = a (sam_numit * sum(parmask)) matrix containing the evolution of the estimated parameters.
+% simsummaries_final = a ds * numsim matrix containing the simulated summaries at the final parameter value (i.e. at THETAsaem(end,:)). 
+%                      Here ds is the total number of summaries computed for both the X and Y component.
+
 
 global means_all_old_external cov_all_old_external startnegloglik simsummaries
 
