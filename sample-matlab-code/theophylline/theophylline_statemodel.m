@@ -1,10 +1,9 @@
 function [xhat,xhat_big] = theophylline_statemodel(bigtheta,nobs,numsim,sampletime,owntime)
 
-% Produces am N x numsim matrix xhat_big of simulations of the X coordinate
-% of the model, where N=length(owntime).
-% Also produces an nobs x numsim matrix xhat of simulations of the X coordinate
-% of the model, where nobs = length(sampletime). This are linear
-% interpolated values from the xhat_big output.
+% Produces an N x numsim matrix xhat_big of simulations of the X coordinate of the model, using
+% model parameters bigtheta, where N=length(owntime).
+% Also produces an nobs x numsim matrix xhat of simulations of the X coordinate of the model, 
+% where nobs = length(sampletime). These are linearly interpolated values from the xhat_big output.
 % nobs = number of sampling times
 % numsim = number of simulations (R in the paper)
 
