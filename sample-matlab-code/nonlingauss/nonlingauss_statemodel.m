@@ -1,7 +1,9 @@
 function xhat = nonlingauss_statemodel(bigtheta,nobs,numsim)
-% produce nobs x numsim simulations of the X coordinate of the model
+% produce nobs x numsim simulations of the X coordinate of the model.
+% bigtheta = vector of the model parameters (both free and fixed parameters).
 % nobs = number of sampling times
-% numsim = number of simulations (R in the paper)
+% numsim = number of simulations (=R in the paper).
+% xhat = a nobs x numsim matrix of simulations from the latent state X
 
 X0 = bigtheta(1);
 log_sigmax = bigtheta(2);
