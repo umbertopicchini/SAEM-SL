@@ -1,5 +1,15 @@
 function THETAsaem = saem_synlik(model_param,parmask,parbase,yobs,covariates,saem_numit,warmup,numsim)
-%this is the main SAEM-SL algorithm
+% this is the main SAEM-SL algorithm (notice this version is not very general. It is specialised for the specific example "theophylline").
+% model_param: a structure containing quantities defined in the run file (bigtheta,problem,owntime,sampletime,numdepvars,vrbl). See theophylline_run.m.
+% parmask: vector containing 1's for free parameters and 0 otherwise, see See theophylline_run.m.
+% parbase: contains starting values for the parameters (especially useful to extract the values of fixed parameters = not estimated parameters). See See theophylline_run.m.
+% yobs: vector of observations from the Y component of the model.
+% covariates: ("covariates" is redundant and should be eliminated) a structure, with first component the observational times (sampletime), and second component the fine grid of imputed times (owntime).
+% saem_numit: total number of SAEM iterations (=K in the paper).
+% warmup: the number of SAEM iterations (K1) before using the (descreasing) "alpha" sequence into SAEM
+% numsim: number of simulations (R in the paper) to compute a single evaluation of a synthetic likelihood.
+% THETAsaem = a (sam_numit * sum(parmask)) matrix containing the evolution of the estimated parameters.
+
 
 global means_all_old_external cov_all_old_external startnegloglik
 
